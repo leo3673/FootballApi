@@ -1,6 +1,7 @@
 using System.Text;
 using FootballApi;
 using FootballApi.Service;
+using FootballApi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -72,6 +73,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")
     ));
+
+// db alive service
+builder.Services.AddHostedService<KeepAliveService>();
 
 // add league service
 builder.Services.AddScoped<ILeagueService, LeagueService>();
