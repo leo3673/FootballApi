@@ -1,7 +1,6 @@
 using System.Text;
 using FootballApi;
 using FootballApi.Service;
-using FootballApi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;

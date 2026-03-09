@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace FootballApi.Services
+namespace FootballApi.Service
 {
     public class KeepAliveService : BackgroundService
     {
