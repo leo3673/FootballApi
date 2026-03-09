@@ -73,6 +73,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         builder.Configuration.GetConnectionString("DefaultConnection")
     ));
 
+// db alive service
+builder.Services.AddHostedService<KeepAliveService>();
+
 // add league service
 builder.Services.AddScoped<ILeagueService, LeagueService>();
 

@@ -44,7 +44,6 @@ namespace FootballApi.Controllers
 
             return Ok(facilityDtos);
         }
-        [Authorize]
         [HttpGet("GetCoaches")]
         public async Task<ActionResult<IEnumerable<Coach>>> GetCoaches()
         {
@@ -61,8 +60,7 @@ namespace FootballApi.Controllers
             var coachDtos = _mapper.Map<IEnumerable<CoachDto>>(coaches);
 
             return Ok(coachDtos);
-        }
-        [Authorize]
+        }       
         [HttpGet("GetLeagues")]
         public async Task<ActionResult<IEnumerable<League>>> GetLeagues()
         {
@@ -260,6 +258,7 @@ namespace FootballApi.Controllers
 
             return Ok(playerGoalListDtos);
         }
+        [Authorize]
         [HttpPost("PostAddCoach")]
         public async Task<ActionResult<Coach>> AddCoach(Coach coach)
         {
@@ -267,6 +266,7 @@ namespace FootballApi.Controllers
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetCoaches), new { id = coach.CoachID }, coach);
         }
+        [Authorize]
         [HttpPost("PostAddPlayer")]
         public async Task<ActionResult<Player>> AddPlayer(Player player)
         {
