@@ -30,7 +30,7 @@ namespace FootballApi.Service
                     }
                 }
 
-                await Task.Delay(TimeSpan.FromMinutes(20), stoppingToken);
+                await Task.Delay(TimeSpan.FromMinutes(3), stoppingToken);
             }
         }
     }
