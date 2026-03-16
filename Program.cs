@@ -74,7 +74,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     ));
 
 // db alive service
-builder.Services.AddHostedService<KeepAliveService>();
+//builder.Services.AddHostedService<KeepAliveService>();
 
 // add league service
 builder.Services.AddScoped<ILeagueService, LeagueService>();
