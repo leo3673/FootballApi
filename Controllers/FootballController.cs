@@ -258,6 +258,12 @@ namespace FootballApi.Controllers
 
             return Ok(playerGoalListDtos);
         }
+        [HttpGet("WarmUp")]
+        public async Task<IActionResult> WarmUp()
+        {
+            await _context.Database.ExecuteSqlRawAsync("SELECT 1");
+            return Ok("Api and db warmed");
+        }
         [Authorize]
         [HttpPost("PostAddCoach")]
         public async Task<ActionResult<Coach>> AddCoach(Coach coach)
@@ -282,6 +288,5 @@ namespace FootballApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
     }
 }
