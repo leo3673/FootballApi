@@ -85,7 +85,12 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 var app = builder.Build();
 
 app.UseSwagger();
-app.UseSwaggerUI();
+
+// update swagger ui version
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v1.1/swagger.json", "Game API v1.1");
+});
 
 app.UseHttpsRedirection();
 
