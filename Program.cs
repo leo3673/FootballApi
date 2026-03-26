@@ -35,7 +35,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 // swagger
 builder.Services.AddSwaggerGen(options =>
 {
-    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Football Stats API", Version = "v1" });
+    options.SwaggerDoc("v1.1", new OpenApiInfo { Title = "Football Stats API", Version = "v1.1" });
 
     // enable jwt authentication in swagger
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
