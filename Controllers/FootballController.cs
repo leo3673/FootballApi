@@ -191,15 +191,29 @@ namespace FootballApi.Controllers
             return Ok(playerListByClubDtos);
         }
         [HttpGet("GetPlayersListByLeagueAndPosition")]
-        public async Task<ActionResult<IEnumerable<PlayerListByLeagueAndPositionDto>>> GetPlayerListByLeagueAndPosition(int leagueId, string position, string season)
+        public async Task<ActionResult<IEnumerable<PlayerListByLeagueAndPositionDto>>>
+            GetPlayerListByLeagueAndPosition(
+                int leagueId,
+                string position,
+                string season)
         {
-            var playerList = await _context.players
+            var query = _context.players
                 .Include(c => c.Club)
-                .Where(s => s.Club.LeagueId == leagueId && s.Position == position && s.Season == season)
+                .Where(s =>
+                    s.Club.LeagueId == leagueId &&
+                    s.Season == season);
+
+            if (!string.IsNullOrWhiteSpace(position) && position != "All")
+            {
+                query = query.Where(s => s.Position == position);
+            }
+
+            var playerList = await query
                 .OrderBy(s => s.LastName)
                 .ToListAsync();
 
-            var playerListByLeagueDtos = _mapper.Map<IEnumerable<PlayerListByLeagueAndPositionDto>>(playerList);
+            var playerListByLeagueDtos =
+                _mapper.Map<IEnumerable<PlayerListByLeagueAndPositionDto>>(playerList);
 
             return Ok(playerListByLeagueDtos);
         }
