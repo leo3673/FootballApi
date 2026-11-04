@@ -26,6 +26,8 @@
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string? Position { get; set; }
+        public int PlayerID { get; set; }
+        public int ClubID { get; set; }
     }
 
     public class PlayerListByLeagueAndPositionDto
