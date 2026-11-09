@@ -28,6 +28,7 @@
     public class LeagueStandingDto
     {
         public string clubName { get; set; }
+        public string abbreviation { get; set; }
         public int draws { get; set; }
         public int goalsAgainst { get; set; }
         public int goalDifference => goalsFor - goalsAgainst;

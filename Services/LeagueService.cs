@@ -29,9 +29,22 @@ namespace FootballApi.Service
 
                 // initialize clubs if not exist
                 if (!standings.ContainsKey(match.AwayClubID))
-                    standings[match.AwayClubID] = new LeagueStandingDto { clubName = match.AwayClub.ClubName };
+                {
+                    standings[match.AwayClubID] = new LeagueStandingDto
+                    {
+                        clubName = match.AwayClub.ClubName,
+                        abbreviation = match.AwayClub.Abbreviation
+                    };
+                }
+
                 if (!standings.ContainsKey(match.HomeClubID))
-                    standings[match.HomeClubID] = new LeagueStandingDto { clubName = match.HomeClub.ClubName };
+                {
+                    standings[match.HomeClubID] = new LeagueStandingDto
+                    {
+                        clubName = match.HomeClub.ClubName,
+                        abbreviation = match.HomeClub.Abbreviation
+                    };
+                }
 
                 var away = standings[match.AwayClubID];
                 var home = standings[match.HomeClubID];
