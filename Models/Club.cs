@@ -11,6 +11,7 @@ namespace FootballApi.Models
         [Key]
         public int ClubID { get; set; }
         public string? ClubName { get; set; }
+        public string? Abbreviation { get; set; }
         public int EstablishedYear{ get; set; }
         public string? Stadium { get; set; }
         public int Capacity{ get; set; }

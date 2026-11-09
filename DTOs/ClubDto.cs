@@ -4,6 +4,7 @@
     {
         public int ClubID { get; set; }
         public string ClubName { get; set; } = string.Empty;
+        public string Abbreviation { get; set; } = string.Empty;
         public int? EstablishedYear { get; set; }
         public string Stadium { get; set; } = string.Empty;
         public int? Capacity { get; set; }
