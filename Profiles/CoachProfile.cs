@@ -9,7 +9,8 @@ namespace FootballApi.Profiles
         public CoachProfile()
         {
             CreateMap<Coach, CoachDto>()
-                .ForMember(dest => dest.ClubName, opt => opt.MapFrom(src => src.Club.ClubName));
+                .ForMember(dest => dest.ClubName, opt => opt.MapFrom(src => src.Club.ClubName))
+                .ForMember(dest => dest.ClubAbbreviation, opt => opt.MapFrom(src => src.Club.Abbreviation));
         }
     }
 }
