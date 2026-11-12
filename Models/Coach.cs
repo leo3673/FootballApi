@@ -13,6 +13,8 @@ namespace FootballApi.Models
         public int CoachID { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
+        public string? Country { get; set; }
+        public string? CountryCode { get; set; }
         public int ExperienceYears { get; set; }
         public int ClubID { get; set; }
         public int LeagueId { get; set; }    
