@@ -13,6 +13,7 @@
         public int? Assists { get; set; }
         public string? ClubName { get; set; }
         public string? Country { get; set; }
+        public string? CountryCode { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string? FirstName { get; set; }
         public int? Goals { get; set; }
@@ -34,6 +35,7 @@
     {
         public DateTime DateOfBirth { get; set; }
         public string? Country { get; set; }
+        public string? CountryCode { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public int PlayerID { get; set; }
