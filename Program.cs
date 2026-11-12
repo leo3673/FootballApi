@@ -35,7 +35,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 // swagger
 builder.Services.AddSwaggerGen(options =>
 {
-    options.SwaggerDoc("v1.0.7", new OpenApiInfo { Title = "Football Stats API", Version = "v1.0.7" });
+    options.SwaggerDoc("v1.0.8", new OpenApiInfo { Title = "Football Stats API", Version = "v1.0.8" });
 
     // enable jwt authentication in swagger
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -89,7 +89,7 @@ app.UseSwagger();
 // update swagger ui version
 app.UseSwaggerUI(options =>
 {
-    options.SwaggerEndpoint("/swagger/v1.0.7/swagger.json", "Football Stats API v1.0.7");
+    options.SwaggerEndpoint("/swagger/v1.0.8/swagger.json", "Football Stats API v1.0.8");
 });
 
 app.UseHttpsRedirection();

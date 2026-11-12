@@ -5,8 +5,11 @@
         public int CoachID { get; set; }
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
+        public string Country { get; set; } = string.Empty;
+        public string CountryCode { get; set; } = string.Empty;
         public int ExperienceYears { get; set; }
         public int LeagueId { get; set; }
         public string ClubName { get; set; } = string.Empty;
+        public string ClubAbbreviation { get; set; } = string.Empty;
     }
 }
