@@ -60,7 +60,7 @@ namespace FootballApi.Controllers
             var coachDtos = _mapper.Map<IEnumerable<CoachDto>>(coaches);
 
             return Ok(coachDtos);
-        }       
+        }
         [HttpGet("GetLeagues")]
         public async Task<ActionResult<IEnumerable<League>>> GetLeagues()
         {
@@ -197,25 +197,33 @@ namespace FootballApi.Controllers
                 string position,
                 string season)
         {
-            var query = _context.players
+            try
+            {
+                var query = _context.players
                 .Include(c => c.Club)
                 .Where(s =>
                     s.Club.LeagueId == leagueId &&
                     s.Season == season);
 
-            if (!string.IsNullOrWhiteSpace(position) && position != "All")
-            {
-                query = query.Where(s => s.Position == position);
+                if (!string.IsNullOrWhiteSpace(position) && position != "All")
+                {
+                    query = query.Where(s => s.Position == position);
+                }
+
+                var playerList = await query
+                    .OrderBy(s => s.LastName)
+                    .ToListAsync();
+
+                var playerListByLeagueDtos =
+                    _mapper.Map<IEnumerable<PlayerListByLeagueAndPositionDto>>(playerList);
+
+                return Ok(playerListByLeagueDtos);
             }
-
-            var playerList = await query
-                .OrderBy(s => s.LastName)
-                .ToListAsync();
-
-            var playerListByLeagueDtos =
-                _mapper.Map<IEnumerable<PlayerListByLeagueAndPositionDto>>(playerList);
-
-            return Ok(playerListByLeagueDtos);
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
         }
         [HttpGet("GetPlayerPositions")]
         public async Task<ActionResult<IEnumerable<PlayerPositionsListDto>>> GetPlayerPositions(int leagueId, string season)
