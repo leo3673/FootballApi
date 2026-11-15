@@ -11,6 +11,7 @@ namespace FootballApi.Profiles
             CreateMap<Player, PlayerDetailDto>()
                 .ForMember(dest => dest.Assists, opt => opt.MapFrom(src => src.PlayerSeasonStats.Assists))
                 .ForMember(dest => dest.ClubName, opt => opt.MapFrom(src => src.Club.ClubName))
+                .ForMember(dest => dest.ClubAbbreviation, opt => opt.MapFrom(src => src.Club.Abbreviation))
                 .ForMember(dest => dest.Goals, opt => opt.MapFrom(src => src.PlayerSeasonStats.Goals));
 
             CreateMap<Player, PlayerListByClubDto>();
