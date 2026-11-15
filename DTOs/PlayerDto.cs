@@ -12,6 +12,7 @@
     {
         public int? Assists { get; set; }
         public string? ClubName { get; set; }
+        public string? ClubAbbreviation { get; set; }
         public string? Country { get; set; }
         public string? CountryCode { get; set; }
         public DateTime DateOfBirth { get; set; }
